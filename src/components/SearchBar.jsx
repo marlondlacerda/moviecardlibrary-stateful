@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -12,6 +14,9 @@ class SearchBar extends React.Component {
               type="text"
               id="searchText"
               name="searchText"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              placeholder="Pesquisar Filme!"
             />
           </label>
         </form>
@@ -19,5 +24,10 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;

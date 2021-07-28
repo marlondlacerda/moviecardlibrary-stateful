@@ -6,16 +6,31 @@ import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      movies: props.movies,
+    };
+  }
+
+  handleChange = ({ target }) => {
+    this.setState({
+      searchText: target.value,
+    });
+  }
 
   render() {
-    const { movies } = this.props;
+    const { searchText, movies } = this.state;
+    const { handleChange } = this;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ handleChange }
+        />
         <MovieList movies={ movies } />
         {/* <AddMovie /> */}
       </div>
