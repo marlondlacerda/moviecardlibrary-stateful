@@ -9,8 +9,9 @@ class MovieLibrary extends Component {
     super(props);
     this.state = {
       searchText: '',
-      movies: props.movies,
       bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
     };
   }
 
@@ -21,9 +22,11 @@ class MovieLibrary extends Component {
     });
   }
 
+  kek = () => 'oi';
+
   render() {
-    const { searchText, movies, bookmarkedOnly } = this.state;
-    const { handleChange } = this;
+    const { searchText, movies, bookmarkedOnly, selectedGenre } = this.state;
+    const { handleChange, kek } = this;
 
     return (
       <div>
@@ -33,9 +36,11 @@ class MovieLibrary extends Component {
           onSearchTextChange={ handleChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ handleChange }
+          selectedGenre={ selectedGenre }
+          onselectedGenreChange={ handleChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onclick={ kek } />
       </div>
     );
   }
