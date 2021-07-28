@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
 
   handleChange = ({ target }) => {
     this.setState({
-      searchText: target.value,
+      [target.name]: target.value,
 
     });
   }

@@ -1,14 +1,16 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // subtitle: '',
-      // title: '',
-      // imagePath: '',
+      subtitle: '',
+      title: '',
+      imagePath: '',
       // storyline: '',
       // rating: 0,
       // genre: 'action',
@@ -20,12 +22,17 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
         <section>
           <Title value={ title } onChange={ handleChange } />
+          <Subtitle value={ subtitle } onChange={ handleChange } />
+          <ImagePath value={ imagePath } onChange={ handleChange } />
+          {/* <Title value={ title } onChange={ handleChange } />
+          <Title value={ title } onChange={ handleChange } />
+          <Title value={ title } onChange={ handleChange } /> */}
         </section>
 
       </form>
