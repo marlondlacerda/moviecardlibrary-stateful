@@ -1,46 +1,67 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
-import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies,
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  handleChange = ({ target }) => {
-    this.setState({
-      [target.name]: target.value,
+  onChange = ({ target }) => {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
 
+    this.setState({
+      [name]: value,
     });
   }
 
-  kek = () => 'oi';
+  onClick(object) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, object],
+    }));
+  }
 
   render() {
     const { searchText, movies, bookmarkedOnly, selectedGenre } = this.state;
-    const { handleChange, kek } = this;
+    const { onChange, onClick } = this;
 
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ handleChange }
+          onSearchTextChange={ onChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ handleChange }
+          onBookmarkedChange={ onChange }
           selectedGenre={ selectedGenre }
-          onselectedGenreChange={ handleChange }
+          onSelectedGenreChange={ onChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie onclick={ kek } />
+        <MovieList
+          movies={ Object.values(movies)
+            .filter((movie) => (bookmarkedOnly === false
+              ? movie : movie.bookmarked === bookmarkedOnly))
+            .filter((movie) => (selectedGenre === ''
+              ? movie : movie.genre === selectedGenre))
+            .filter((movie) => movie.title.includes(searchText)
+            || movie.subtitle.includes(searchText)
+            || movie.storyline.includes(searchText)) }
+        />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
