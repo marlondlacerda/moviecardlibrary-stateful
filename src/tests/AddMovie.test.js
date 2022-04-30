@@ -10,7 +10,7 @@ const initialState = {
   imagePath: '',
   storyline: '',
   rating: 0,
-  genre: 'action',
+  genre: 'Action',
 };
 
 const onClick = jest.fn();
@@ -172,12 +172,18 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
 
 describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
   const options = [
-    { value: 'action', text: 'Ação' },
-    { value: 'comedy', text: 'Comédia' },
-    { value: 'thriller', text: 'Suspense' },
+    { text: 'Ação', value: 'Action' },
+    { text: 'Aventura', value: 'Adventure' },
+    { text: 'Fantasia', value: 'Fantasy' },
+    { text: 'Anime', value: 'Anime' },
+    { text: 'Sci-fi', value: 'Sci-fi' },
+    { text: 'Crime', value: 'Crime' },
+    { text: 'Drama', value: 'Drama' },
+    { text: 'Suspense', value: 'Mystery' },
+    { text: 'Terror', value: 'Terror' },
   ];
 
-  it('Renderize um select com 3 opções de genero de filme', () => {
+  it('Renderize um select com 9 opções de genero de filme', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
   });
@@ -187,14 +193,14 @@ describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selec
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
 
-  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
+  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e Action, Aventura e Adventure, Fantasia e Fantasy', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
       expect(option).toHaveValue(options[index].value);
     });
   });
 
-  it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
+  it('Será validado se o gênero selecionado inicialmente é o "Action"', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
 
@@ -227,13 +233,13 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     event.type(subtitleInput, subtitleMagical);
     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
     event.type(ratingInput, '3.5');
-    event.selectOptions(genreInput, 'comedy');
+    event.selectOptions(genreInput, 'Adventure');
 
     expect(titleInput).toHaveValue(movieHarryPotter);
     expect(subtitleInput).toHaveValue(subtitleMagical);
     expect(storylineInput).toHaveValue(inputStoryline);
     expect(ratingInput).toHaveValue(expectedRating);
-    expect(genreInput).toHaveValue('comedy');
+    expect(genreInput).toHaveValue('Adventure');
 
     event.click(sendButton);
 
@@ -241,6 +247,6 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(subtitleInput).toHaveValue('');
     expect(storylineInput).toHaveValue('');
     expect(ratingInput).toHaveValue(0);
-    expect(genreInput).toHaveValue('action');
+    expect(genreInput).toHaveValue('Action');
   });
 });
