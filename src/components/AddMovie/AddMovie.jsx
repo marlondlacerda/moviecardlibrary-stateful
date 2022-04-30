@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genres: 'Action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,21 +34,26 @@ class AddMovie extends React.Component {
 
   onClickFunc = () => {
     const { onClick } = this.props;
+    const { genres } = this.state;
 
-    onClick(this.state);
+    const newMovie = {
+      ...this.state,
+      genres: [genres],
+    };
 
+    onClick(newMovie);
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genres: 'Action',
     });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genres } = this.state;
     const { handleChange } = this;
     return (
       <div>
@@ -60,7 +65,7 @@ class AddMovie extends React.Component {
             <ImagePath value={ imagePath } onChange={ handleChange } />
             <Storyline value={ storyline } onChange={ handleChange } />
             <InputRating value={ Number(rating) } onChange={ handleChange } />
-            <Genre value={ genre } onChange={ handleChange } />
+            <Genre value={ genres } onChange={ handleChange } />
           </section>
           <button
             data-testid="send-button"
