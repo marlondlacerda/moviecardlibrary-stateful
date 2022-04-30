@@ -56,7 +56,7 @@ class MovieLibrary extends Component {
             .filter((movie) => (bookmarkedOnly === false
               ? movie : movie.bookmarked === bookmarkedOnly))
             .filter((movie) => (selectedGenre === ''
-              ? movie : movie.genre === selectedGenre))
+              ? movie : movie.genres.includes(selectedGenre)))
             .filter((movie) => movie.title.includes(searchText)
             || movie.subtitle.includes(searchText)
             || movie.storyline.includes(searchText)) }
