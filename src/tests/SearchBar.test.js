@@ -25,7 +25,7 @@ const beforeEachUnitTest = () => {
     onSearchTextChange: jest.fn(),
     bookmarkedOnly: true,
     onBookmarkedChange: jest.fn(),
-    selectedGenre: 'action',
+    selectedGenre: 'Action',
     onSelectedGenreChange: jest.fn(),
   };
 };
@@ -140,18 +140,24 @@ describe('5 - Renderize um select dentro do formulário em `<SearchBar />`', () 
   it('Passe a prop `onSelectedGenreChange` para o atributo `onChange` do select', () => {
     const { getByTestId } = searchBar();
     const selectInput = getByTestId(selectTestId);
-    event.selectOptions(selectInput, 'comedy');
+    event.selectOptions(selectInput, 'Adventure');
 
     expect(props.onSelectedGenreChange).toHaveBeenCalledTimes(1);
   });
 
-  it("Renderize 4 options dentro do select com os textos e valores, respectivamente: Todos e '', Ação e action, Comédia e comedy, Suspense e thriller", () => {
-    const expectedLength = 4;
+  it("Renderize 9 options dentro do select com os textos e valores, inicialmente: Todos e '', Ação e Action, Aventura e Adventure, Fantasia e Fantasy", () => {
+    const expectedLength = 10;
     const genreOptions = [
       { text: 'Todos', value: '' },
-      { text: 'Ação', value: 'action' },
-      { text: 'Comédia', value: 'comedy' },
-      { text: 'Suspense', value: 'thriller' },
+      { text: 'Ação', value: 'Action' },
+      { text: 'Aventura', value: 'Adventure' },
+      { text: 'Fantasia', value: 'Fantasy' },
+      { text: 'Anime', value: 'Anime' },
+      { text: 'Sci-fi', value: 'Sci-fi' },
+      { text: 'Crime', value: 'Crime' },
+      { text: 'Drama', value: 'Drama' },
+      { text: 'Suspense', value: 'Mystery' },
+      { text: 'Terror', value: 'Terror' },
     ];
     const { getAllByTestId } = searchBar();
     const selectOptions = getAllByTestId('select-option');
