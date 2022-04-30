@@ -13,7 +13,7 @@ const movies = [
     rating: 4.5,
     imagePath: 'images/movie_1',
     bookmarked: true,
-    genre: 'action',
+    genres: ['Action'],
   },
   {
     title: 'Movie Title 2',
@@ -22,7 +22,7 @@ const movies = [
     rating: 4.5,
     imagePath: 'images/movie_2',
     bookmarked: false,
-    genre: 'comedy',
+    genres: ['Adventure'],
   },
   {
     title: 'Movie Title 3',
@@ -31,7 +31,7 @@ const movies = [
     rating: 3,
     imagePath: 'images/movie_3',
     bookmarked: false,
-    genre: 'thriller',
+    genres: ['Fantasy'],
   },
 ];
 
@@ -100,9 +100,9 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
 
-    event.selectOptions(selectInput, 'thriller');
+    event.selectOptions(selectInput, 'Fantasy');
 
-    expect(selectInput).toHaveValue('thriller');
+    expect(selectInput).toHaveValue('Fantasy');
   });
 });
 
@@ -179,7 +179,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const select = getByTestId(selectTestId);
 
-    event.selectOptions(select, 'comedy');
+    event.selectOptions(select, 'Adventure');
 
     const movieCard = getAllByTestId(movieCardTestId);
     expect(movieCard).toHaveLength(1);
@@ -203,7 +203,7 @@ describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
       title: 'Harry Potter VII',
       storyline: 'Harry dies',
       rating: '4.9',
-      genre: 'action',
+      genres: 'Action',
     };
 
     let movieCards = getAllByTestId(movieCardTestId);
@@ -223,7 +223,7 @@ describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
     event.type(imageInput, newMovie.imagePath);
     fireEvent.change(storylineInput, { target: { value: newMovie.storyline } });
     event.type(ratingInput, newMovie.rating);
-    event.selectOptions(genreInput, newMovie.genre);
+    event.selectOptions(genreInput, newMovie.genres);
 
     event.click(sendButton);
 
