@@ -5,18 +5,24 @@ class Genre extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="genre-input-label" htmlFor="genre">
+      <label data-testid="genre-input-label" htmlFor="genres">
         Gênero
         <select
           data-testid="genre-input"
-          name="genre"
-          id="genre"
+          name="genres"
+          id="genres"
           value={ value }
           onChange={ onChange }
         >
-          <option data-testid="genre-option" value="action">Ação</option>
-          <option data-testid="genre-option" value="comedy">Comédia</option>
-          <option data-testid="genre-option" value="thriller">Suspense</option>
+          <option data-testid="genre-option" value="Action">Ação</option>
+          <option data-testid="genre-option" value="Adventure">Aventura</option>
+          <option data-testid="genre-option" value="Fantasy">Fantasia</option>
+          <option data-testid="genre-option" value="Anime"> Anime</option>
+          <option data-testid="genre-option" value="Sci-fi">Sci-fi</option>
+          <option data-testid="genre-option" value="Crime">Crime</option>
+          <option data-testid="genre-option" value="Drama">Drama</option>
+          <option data-testid="genre-option" value="Mystery">Suspense</option>
+          <option data-testid="genre-option" value="Terror">Terror</option>
         </select>
       </label>
     );
