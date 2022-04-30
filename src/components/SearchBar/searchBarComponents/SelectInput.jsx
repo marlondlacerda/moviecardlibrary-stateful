@@ -18,9 +18,15 @@ class SelectInputLabel extends React.Component {
           onChange={ onSelectedGenreChange }
         >
           <option value="" data-testid="select-option">Todos</option>
-          <option value="action" data-testid="select-option">Ação</option>
-          <option value="comedy" data-testid="select-option">Comédia</option>
-          <option value="thriller" data-testid="select-option">Suspense</option>
+          <option value="Action" data-testid="select-option">Ação</option>
+          <option value="Adventure" data-testid="select-option">Aventura</option>
+          <option value="Fantasy" data-testid="select-option">Fantasia</option>
+          <option value="Anime" data-testid="select-option">Anime</option>
+          <option value="Sci-fi" data-testid="select-option">Sci-fi</option>
+          <option value="Crime" data-testid="select-option">Crime</option>
+          <option value="Drama" data-testid="select-option">Drama</option>
+          <option value="Mystery" data-testid="select-option">Suspense</option>
+          <option value="Terror" data-testid="select-option">Terror</option>
         </select>
       </label>
     );
