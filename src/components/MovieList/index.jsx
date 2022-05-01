@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React, { useEffect, useState } from 'react';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -8,36 +7,36 @@ import './MovieList.css';
 
 const WIDTHLENGHT = 350;
 const SIXTY = 60;
-const TWOHUNDRED = 150;
+const INITIALSTATUS = 150;
+const MINLENGTH = 760;
 const FOUR = 4;
 
+const handleLeftArrow = (scrollX, setScrollX) => {
+  let x = scrollX + Math.round(window.innerWidth / 2);
+  if (x > 0) x = 0;
+  setScrollX(x);
+};
+
+const handleRightArrow = (scrollX, setScrollX, movies) => {
+  let x = scrollX - Math.round(window.innerWidth / 2);
+  const list = movies.length * WIDTHLENGHT;
+
+  if ((window.innerWidth - list) > x) {
+    x = (window.innerWidth - list) - SIXTY;
+  }
+  setScrollX(x);
+};
+
 const MovieList = (props) => {
-  const [scrollX, setScrollX] = useState(-TWOHUNDRED);
+  const [scrollX, setScrollX] = useState(-INITIALSTATUS);
 
   const { movies } = props;
 
-  const handleLeftArrow = () => {
-    let x = scrollX + Math.round(window.innerWidth / 2);
-    console.log(movies.length);
-    if (x > 0) x = 0;
-    setScrollX(x);
-  };
-
-  const handleRightArrow = () => {
-    let x = scrollX - Math.round(window.innerWidth / 2);
-    const list = movies.length * WIDTHLENGHT;
-
-    if ((window.innerWidth - list) > x) {
-      x = (window.innerWidth - list) - SIXTY;
-    }
-    setScrollX(x);
-  };
-
   useEffect(() => {
-    if (movies.length < FOUR) {
+    if (movies.length < FOUR && window.innerWidth > MINLENGTH) {
       setScrollX(0);
     } else if (scrollX === 0) {
-      setScrollX(-TWOHUNDRED);
+      setScrollX(-INITIALSTATUS);
     }
   }, [movies, scrollX]);
 
@@ -47,12 +46,16 @@ const MovieList = (props) => {
       <button
         type="button"
         className="movieRow-left"
-        onClick={ handleLeftArrow }
+        onClick={ () => handleLeftArrow(scrollX, setScrollX) }
       >
         <NavigateBeforeIcon style={ { fontSize: 50 } } />
       </button>
 
-      <button type="button" className="movieRow-right" onClick={ handleRightArrow }>
+      <button
+        type="button"
+        className="movieRow-right"
+        onClick={ () => handleRightArrow(scrollX, setScrollX, movies) }
+      >
         <NavigateNextIcon style={ { fontSize: 50 } } />
       </button>
       <div className="movieRow-listarea">
@@ -74,7 +77,7 @@ const MovieList = (props) => {
 };
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
 
 export default MovieList;
