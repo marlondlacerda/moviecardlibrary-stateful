@@ -1,14 +1,21 @@
 import React from 'react';
-import Header from './components/Header';
-import './App.css';
+import FeaturedMovie from './components/FeaturedMovie';
 import MovieLibrary from './components/MovieLibrary';
+import Header from './components/Header';
 import movies from './data';
 
+import './App.css';
+
 function App() {
+  const index = Math.floor(Math.random() * movies.length);
+
   return (
     <div className="App">
       <Header />
-      <MovieLibrary movies={ movies } />
+      <FeaturedMovie movie={ movies[index] } />
+      <div className="lists">
+        <MovieLibrary movies={ movies } />
+      </div>
     </div>
   );
 }
