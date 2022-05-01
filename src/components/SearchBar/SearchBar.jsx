@@ -2,19 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CheckBoxInput, SelectInput, TextInput } from './searchBarComponents';
 
+import './SearchBar.css';
+
 class SearchBar extends React.Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, onSelectedGenreChange, selectedGenre } = this.props;
 
     return (
-      <div>
-        <form data-testid="search-bar-form">
+      <div className="form">
+        <form data-testid="search-bar-form" className="search-bar-form">
           <TextInput
             searchText={ searchText }
             onSearchTextChange={ onSearchTextChange }
           />
-
           <CheckBoxInput
             bookmarkedOnly={ bookmarkedOnly }
             onBookmarkedChange={ onBookmarkedChange }
