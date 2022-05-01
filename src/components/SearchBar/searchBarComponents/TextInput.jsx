@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 class TextInputLabel extends React.Component {
@@ -6,19 +8,23 @@ class TextInputLabel extends React.Component {
     const { searchText, onSearchTextChange } = this.props;
 
     return (
-      <label
-        htmlFor="searchText"
-        data-testid="text-input-label"
-      >
-        Inclui o texto:
-        <input
-          type="text"
-          name="searchText"
-          data-testid="text-input"
-          value={ searchText }
-          onChange={ onSearchTextChange }
-        />
-      </label>
+      <div className="content">
+        <div className="search">
+          <input
+            id="searchText"
+            className="search__input"
+            type="text"
+            name="searchText"
+            data-testid="text-input"
+            value={ searchText }
+            placeholder="enter your search"
+            onChange={ onSearchTextChange }
+          />
+          <button type="button" className="search__submit">
+            <FontAwesomeIcon icon={ faSearch } />
+          </button>
+        </div>
+      </div>
     );
   }
 }
