@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MovieList from './MovieList';
-import AddMovie from './AddMovie';
-import SearchBar from './SearchBar';
+import MovieList from '../MovieList';
+import AddMovie from '../AddMovie';
+import SearchBar from '../SearchBar';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -42,7 +42,6 @@ class MovieLibrary extends Component {
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ onChange }
