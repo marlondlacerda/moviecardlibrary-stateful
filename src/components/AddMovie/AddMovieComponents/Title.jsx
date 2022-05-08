@@ -12,14 +12,13 @@ class Title extends Component {
           type="text"
           name="title"
           value={ value }
-          data-testid="title-input"
           onChange={ onChange }
           placeholder=""
           onFocus={ (e) => { e.target.placeholder = 'Digite o nome do Filme!'; } }
           onBlur={ (e) => { e.target.placeholder = ''; } }
           required
         />
-        <label data-testid="title-input-label" htmlFor="title">
+        <label htmlFor="title">
           Título
         </label>
       </div>

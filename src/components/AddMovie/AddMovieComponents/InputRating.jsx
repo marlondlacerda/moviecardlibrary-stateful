@@ -38,7 +38,7 @@ class InputRating extends Component {
 
     return (
       <div className="input-rating">
-        <label data-testid="rating-input-label" htmlFor="rating">
+        <label htmlFor="rating">
           Avaliação
         </label>
         <div className="container-input">
@@ -55,7 +55,6 @@ class InputRating extends Component {
             className="rating-input"
             id="rating"
             value={ value }
-            data-testid="rating-input"
             onChange={ onChange }
             placeholder="Digite o nome do Filme!"
             min="0"

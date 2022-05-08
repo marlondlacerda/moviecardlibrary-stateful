@@ -12,7 +12,6 @@ class TextInputLabel extends React.Component {
         <label
           htmlFor="searchText"
           className="input-label"
-          data-testid="text-input-label"
         >
           Inclui o texto
           <input
@@ -20,7 +19,6 @@ class TextInputLabel extends React.Component {
             className="search__input"
             type="text"
             name="searchText"
-            data-testid="text-input"
             value={ searchText }
             placeholder="enter your search"
             onChange={ onSearchTextChange }

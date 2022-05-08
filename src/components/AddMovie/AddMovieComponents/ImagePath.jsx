@@ -11,14 +11,13 @@ class ImagePath extends React.Component {
           type="text"
           name="imagePath"
           value={ value }
-          data-testid="image-input"
           onChange={ onChange }
           placeholder=""
           onFocus={ (e) => { e.target.placeholder = 'Digite a url da Imagem!'; } }
           onBlur={ (e) => { e.target.placeholder = ''; } }
           required
         />
-        <label data-testid="image-input-label" htmlFor="imagePath">
+        <label htmlFor="imagePath">
           Imagem
         </label>
       </div>
