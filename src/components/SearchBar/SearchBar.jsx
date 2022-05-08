@@ -11,20 +11,22 @@ class SearchBar extends React.Component {
 
     return (
       <div className="form">
-        <form data-testid="search-bar-form" className="search-bar-form">
+        <form data-testid="search-bar-form" className="search-bar-form content">
           <TextInput
             searchText={ searchText }
             onSearchTextChange={ onSearchTextChange }
           />
-          <CheckBoxInput
-            bookmarkedOnly={ bookmarkedOnly }
-            onBookmarkedChange={ onBookmarkedChange }
-          />
+          <div className="search-select">
+            <CheckBoxInput
+              bookmarkedOnly={ bookmarkedOnly }
+              onBookmarkedChange={ onBookmarkedChange }
+            />
 
-          <SelectInput
-            selectedGenre={ selectedGenre }
-            onSelectedGenreChange={ onSelectedGenreChange }
-          />
+            <SelectInput
+              selectedGenre={ selectedGenre }
+              onSelectedGenreChange={ onSelectedGenreChange }
+            />
+          </div>
         </form>
       </div>
     );

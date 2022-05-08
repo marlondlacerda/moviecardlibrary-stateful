@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './CheckBoxInput.css';
+
 class CheckBoxInputLabel extends React.Component {
   render() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
@@ -9,6 +11,7 @@ class CheckBoxInputLabel extends React.Component {
       <label
         htmlFor="bookmarkedOnly"
         data-testid="checkbox-input-label"
+        className="label-checkbox"
       >
         <input
           type="checkbox"
@@ -16,6 +19,7 @@ class CheckBoxInputLabel extends React.Component {
           name="bookmarkedOnly"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
+          className="switch"
         />
         Mostrar somente favoritos
       </label>

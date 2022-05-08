@@ -64,7 +64,7 @@ const MovieList = (props) => {
           className="movie-list"
           style={ {
             marginLeft: scrollX,
-            width: '1780px',
+            width: movies.length * window.innerWidth,
           } }
         >
           {
