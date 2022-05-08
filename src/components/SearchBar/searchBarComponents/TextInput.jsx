@@ -8,8 +8,13 @@ class TextInputLabel extends React.Component {
     const { searchText, onSearchTextChange } = this.props;
 
     return (
-      <div className="content">
-        <div className="search">
+      <div className="search">
+        <label
+          htmlFor="searchText"
+          className="input-label"
+          data-testid="text-input-label"
+        >
+          Inclui o texto
           <input
             id="searchText"
             className="search__input"
@@ -20,10 +25,10 @@ class TextInputLabel extends React.Component {
             placeholder="enter your search"
             onChange={ onSearchTextChange }
           />
-          <button type="button" className="search__submit">
-            <FontAwesomeIcon icon={ faSearch } />
-          </button>
-        </div>
+        </label>
+        <button type="button" className="search__submit">
+          <FontAwesomeIcon icon={ faSearch } />
+        </button>
       </div>
     );
   }
