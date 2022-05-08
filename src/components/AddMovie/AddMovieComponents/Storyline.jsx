@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,16 +6,21 @@ class Storyline extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="storyline-input-label" htmlFor="storyline">
-        Sinopse
+      <div className="title-box">
         <textarea
           name="storyline"
           value={ value }
           data-testid="storyline-input"
           onChange={ onChange }
-          placeholder="Escreva a Sinopse do Filme!"
+          placeholder=""
+          onFocus={ (e) => { e.target.placeholder = 'Escreva a Sinopse do Filme!'; } }
+          onBlur={ (e) => { e.target.placeholder = ''; } }
+          required
         />
-      </label>
+        <label data-testid="storyline-input-label" htmlFor="storyline">
+          Sinopse
+        </label>
+      </div>
     );
   }
 }

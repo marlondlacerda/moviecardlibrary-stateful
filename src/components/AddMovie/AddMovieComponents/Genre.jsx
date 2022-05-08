@@ -5,8 +5,10 @@ class Genre extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="genre-input-label" htmlFor="genres">
-        Gênero
+      <div className="container-genre">
+        <label data-testid="genre-input-label" htmlFor="genres">
+          Gênero
+        </label>
         <select
           data-testid="genre-input"
           name="genres"
@@ -24,7 +26,7 @@ class Genre extends Component {
           <option data-testid="genre-option" value="Mystery">Suspense</option>
           <option data-testid="genre-option" value="Terror">Terror</option>
         </select>
-      </label>
+      </div>
     );
   }
 }
