@@ -9,6 +9,8 @@ import {
   Storyline,
 } from './AddMovieComponents';
 
+import './AddMovie.css';
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -56,24 +58,32 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genres } = this.state;
     const { handleChange } = this;
     return (
-      <div>
-        Adicionar novo Filme
+      <div className="new-movie-box">
+        <h2>Adicionar novo Filme</h2>
         <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
           <section>
             <Title value={ title } onChange={ handleChange } />
             <Subtitle value={ subtitle } onChange={ handleChange } />
             <ImagePath value={ imagePath } onChange={ handleChange } />
             <Storyline value={ storyline } onChange={ handleChange } />
-            <InputRating value={ Number(rating) } onChange={ handleChange } />
-            <Genre value={ genres } onChange={ handleChange } />
+            <div className="container">
+              <InputRating value={ Number(rating) } onChange={ handleChange } />
+              <Genre value={ genres } onChange={ handleChange } />
+            </div>
           </section>
-          <button
-            data-testid="send-button"
-            type="button"
-            onClick={ this.onClickFunc }
-          >
-            Adicionar filme
-          </button>
+          <div className="button-container">
+            <button
+              data-testid="send-button"
+              type="button"
+              onClick={ this.onClickFunc }
+            >
+              <span />
+              <span />
+              <span />
+              <span />
+              Adicionar filme
+            </button>
+          </div>
         </form>
       </div>
     );
