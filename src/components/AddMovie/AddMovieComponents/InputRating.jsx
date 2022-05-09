@@ -21,7 +21,6 @@ class InputRating extends Component {
 
   dec = () => {
     const { value, onChange } = this.props;
-
     if (value === 0) return;
 
     const target = {
@@ -59,7 +58,6 @@ class InputRating extends Component {
             placeholder="Digite o nome do Filme!"
             min="0"
             max="10"
-            onKeyDown={ (e) => e.preventDefault() }
             readOnly
           />
           <span
@@ -68,7 +66,7 @@ class InputRating extends Component {
             name="rating"
             tabIndex="0"
             onClick={ () => inc() }
-            onKeyUp={ () => inc() }
+            onKeyDown={ () => inc() }
           />
         </div>
       </div>
