@@ -1,0 +1,10 @@
+node_modules/
+img/
+src/tests/
+.eslintignore
+.eslintrc.json
+.gitignore
+.stylelintrc.json
+.stylelintignore
+heroku.yml
+README.md
