@@ -60,8 +60,6 @@ class InputRating extends Component {
             placeholder="Digite o nome do Filme!"
             min="0"
             max="10"
-            onKeyDown={ (e) => e.preventDefault() }
-            readOnly
           />
           <span
             role="button"
