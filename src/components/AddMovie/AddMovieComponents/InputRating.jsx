@@ -60,6 +60,7 @@ class InputRating extends Component {
             min="0"
             max="10"
             onKeyDown={ (e) => e.preventDefault() }
+            readOnly
           />
           <span
             role="button"
