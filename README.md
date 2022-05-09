@@ -440,3 +440,29 @@
 
   Todos os componentes que recebem props devem ter suas proptypes corretamente declaradas. **O ESlint checa automaticamente declaração de PropTypes, portanto seu Pull Request deverá passar pela verificação do linter para satisfazer esse requisito.**
 </details>
+
+---
+## RECURSOS ADICIONAIS DESENVOLVIDOS POR MIM
+ [PART 1](https://github.com/marlondlacerda/moviecardlibrary#recursos-adicionais-desenvolvidos-por-mim)
+
+  PART 2:
+- Ao clicar no Search Bar ele expande o input para digitar o nome do filme que deseja buscar.
+- Transformei o checkbox em um botão de liga / desliga.
+- Tornei o filtro por gênero em um dropdown.
+- Tornei cada label do formulário encaixado no input e toda vez que clicar no input o label é movido para cima.
+- Tornei o input number de avaliação seja clicável nas setas para incrementar e decrementar.
+- Fiz uma animação usando css no botão de adicionar filme.
+- Implementei Docker para que o aplicativo virasse um container.
+- Deploy usando Heroku
+  - Assim como já peguei um pouco de prática usando vercel, continuei usando o Heroku para praticar mais.
+
+---
+
+<div align="left">
+  <a href="https://github.com/marlondlacerda/trybe-projetos">Voltar para o repositório principal</a>
+</div>
+<div align="center">
+  
+  [⬆ Voltar para o topo](#boas-vindas-ao-repositório-do-projeto-movie-cards-library-stateful-)
+
+</div>
