@@ -60,7 +60,7 @@ class AddMovie extends React.Component {
     return (
       <div className="new-movie-box">
         <h2>Adicionar novo Filme</h2>
-        <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
+        <form onSubmit={ this.handleSubmit }>
           <section>
             <Title value={ title } onChange={ handleChange } />
             <Subtitle value={ subtitle } onChange={ handleChange } />
@@ -73,7 +73,6 @@ class AddMovie extends React.Component {
           </section>
           <div className="button-container">
             <button
-              data-testid="send-button"
               type="button"
               onClick={ this.onClickFunc }
             >

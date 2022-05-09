@@ -21,7 +21,6 @@ class InputRating extends Component {
 
   dec = () => {
     const { value, onChange } = this.props;
-
     if (value === 0) return;
 
     const target = {
@@ -38,7 +37,7 @@ class InputRating extends Component {
 
     return (
       <div className="input-rating">
-        <label data-testid="rating-input-label" htmlFor="rating">
+        <label htmlFor="rating">
           Avaliação
         </label>
         <div className="container-input">
@@ -55,11 +54,11 @@ class InputRating extends Component {
             className="rating-input"
             id="rating"
             value={ value }
-            data-testid="rating-input"
             onChange={ onChange }
             placeholder="Digite o nome do Filme!"
             min="0"
             max="10"
+            readOnly
           />
           <span
             role="button"
@@ -67,7 +66,7 @@ class InputRating extends Component {
             name="rating"
             tabIndex="0"
             onClick={ () => inc() }
-            onKeyUp={ () => inc() }
+            onKeyDown={ () => inc() }
           />
         </div>
       </div>

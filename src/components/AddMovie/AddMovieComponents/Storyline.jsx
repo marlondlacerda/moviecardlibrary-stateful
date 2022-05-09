@@ -10,14 +10,13 @@ class Storyline extends React.Component {
         <textarea
           name="storyline"
           value={ value }
-          data-testid="storyline-input"
           onChange={ onChange }
           placeholder=""
           onFocus={ (e) => { e.target.placeholder = 'Escreva a Sinopse do Filme!'; } }
           onBlur={ (e) => { e.target.placeholder = ''; } }
           required
         />
-        <label data-testid="storyline-input-label" htmlFor="storyline">
+        <label htmlFor="storyline">
           Sinopse
         </label>
       </div>

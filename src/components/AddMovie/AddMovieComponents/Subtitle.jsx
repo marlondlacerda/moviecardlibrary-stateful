@@ -11,14 +11,13 @@ class Subtitle extends Component {
           type="text"
           name="subtitle"
           value={ value }
-          data-testid="subtitle-input"
           onChange={ onChange }
           placeholder=""
           onFocus={ (e) => { e.target.placeholder = 'Digite um subtítulo do Filme!'; } }
           onBlur={ (e) => { e.target.placeholder = ''; } }
           required
         />
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+        <label htmlFor="subtitle">
           Subtítulo
         </label>
       </div>

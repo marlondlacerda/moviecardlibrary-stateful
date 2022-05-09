@@ -60,7 +60,6 @@ const MovieList = (props) => {
       </button>
       <div className="movieRow-listarea">
         <main
-          data-testid="movie-list"
           className="movie-list"
           style={ {
             marginLeft: scrollX,
