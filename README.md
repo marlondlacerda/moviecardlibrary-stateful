@@ -26,7 +26,8 @@
 ---
 
 <div align="center">
-  <img src="./img/preview.png">
+  <img src="./img/preview1.png">
+  <img src="./img/preview2.png">
 </div>
 
 ## Habilidades
@@ -44,6 +45,7 @@
 ---
 
  ## Instruções para instalar e rodar os testes de cada requisito
+```
 1. Clone o repositório
   * `git clone git@github.com:marlondlacerda/moviecardlibrary-stateful.git`
   * Entre na pasta do repositório que você acabou de clonar:
@@ -63,7 +65,7 @@
 
 5. Para rodar os tests
   * Atalho no terminal: `npm run test`
-
+```
 ---
 
 <details>
